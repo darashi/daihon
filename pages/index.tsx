@@ -48,16 +48,20 @@ const Home: NextPage<Props> = ({ utterances }) => {
     };
   };
 
-  const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const nextCursor = Number(e.target.value) - 1;
-
+  const setCursorWithPersistence = (nextCursor: number) => {
     localStorage.setItem(LOCAL_STORAGE_KEY, nextCursor.toString());
-
     setCursor(nextCursor);
   };
 
+  const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCursorWithPersistence(Number(e.target.value) - 1);
+  };
+
   const handleMenuSelection = (selected: string) => {
-    setCursor(utterances.findIndex((utt) => utt.id.startsWith(selected)));
+    const nextCursor = utterances.findIndex((utt) =>
+      utt.id.startsWith(selected)
+    );
+    setCursorWithPersistence(Math.max(nextCursor, 0));
   };
 
   return (
