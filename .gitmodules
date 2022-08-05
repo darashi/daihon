@@ -1,0 +1,4 @@
+[submodule "data/ita-corpus"]
+	path = data/ita-corpus
+	url = https://github.com/darashi/ita-corpus.git
+	branch = ruby
