@@ -36,14 +36,22 @@ const Home: NextPage<Props> = ({ utterances }) => {
 
       <main className="flex-grow overflow-y-scroll">
         <div className="container mx-auto my-3 px-2">
-          <input
-            type="range"
-            min="1"
-            max={utterances.length}
-            value={cursor}
-            onChange={handleRangeChange}
-            className="range range-primary"
-          />
+          <div className="flex items-center my-3">
+            <button className="btn btn-primary mr-3" onClick={handleDelta(-1)}>
+              &laquo;
+            </button>
+            <input
+              type="range"
+              min="1"
+              max={utterances.length}
+              value={cursor}
+              onChange={handleRangeChange}
+              className="range range-primary"
+            />
+            <button className="btn btn-primary ml-3" onClick={handleDelta(1)}>
+              &raquo;
+            </button>
+          </div>
 
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
