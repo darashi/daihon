@@ -27,10 +27,10 @@ const Home: NextPage<Props> = ({ utterances }) => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="flex flex-col h-screen overflow-hidden">
       <Header />
 
-      <main className="flex-grow">
+      <main className="flex-grow overflow-y-scroll">
         <div className="container mx-auto my-3 px-2">
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
@@ -52,7 +52,7 @@ const Home: NextPage<Props> = ({ utterances }) => {
       </main>
 
       <footer>
-        <div className="mt-5 btn-group grid grid-cols-2">
+        <div className="btn-group grid grid-cols-2">
           <button
             className="btn btn-primary rounded-none"
             onClick={handleDelta(-1)}
