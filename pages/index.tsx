@@ -26,12 +26,25 @@ const Home: NextPage<Props> = ({ utterances }) => {
     };
   };
 
+  const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCursor(Number(e.target.value) - 1);
+  };
+
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       <Header />
 
       <main className="flex-grow overflow-y-scroll">
         <div className="container mx-auto my-3 px-2">
+          <input
+            type="range"
+            min="1"
+            max={utterances.length}
+            value={cursor}
+            onChange={handleRangeChange}
+            className="range range-primary"
+          />
+
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
               <div className="mb-2 badge font-bold">{utt.id}</div>
