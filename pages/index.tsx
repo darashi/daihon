@@ -65,7 +65,7 @@ const Home: NextPage<Props> = ({ utterances }) => {
       </main>
 
       <footer>
-        <div className="btn-group grid grid-cols-2">
+        <div className="btn-group grid grid-cols-2 gap-1">
           <button
             className="btn btn-primary rounded-none"
             onClick={handleDelta(-1)}
