@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import type { InferGetStaticPropsType, NextPage } from "next";
 import { useState } from "react";
 import { Header } from "../components/Header";
@@ -13,21 +15,43 @@ export const getStaticProps = async () => {
   };
 };
 
+const LOCAL_STORAGE_KEY = "daihon-cursor";
+
 const Home: NextPage<Props> = ({ utterances }) => {
   const [cursor, setCursor] = useState(0);
 
   const utt = utterances[cursor];
 
+  useEffect(() => {
+    const storedCursor = Number(localStorage.getItem(LOCAL_STORAGE_KEY));
+    const nextCursor = Math.min(
+      Math.max(storedCursor, 0),
+      utterances.length - 1
+    );
+    setCursor(nextCursor);
+  }, [utterances, setCursor]);
+
   const handleDelta = (delta: number) => {
     return () => {
-      setCursor((cursor) =>
-        Math.min(Math.max(cursor + delta, 0), utterances.length - 1)
-      );
+      setCursor((cursor) => {
+        const nextCursor = Math.min(
+          Math.max(cursor + delta, 0),
+          utterances.length - 1
+        );
+
+        localStorage.setItem(LOCAL_STORAGE_KEY, nextCursor.toString());
+
+        return nextCursor;
+      });
     };
   };
 
   const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCursor(Number(e.target.value) - 1);
+    const nextCursor = Number(e.target.value) - 1;
+
+    localStorage.setItem(LOCAL_STORAGE_KEY, nextCursor.toString());
+
+    setCursor(nextCursor);
   };
 
   return (
