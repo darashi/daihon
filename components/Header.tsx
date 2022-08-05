@@ -1,4 +1,5 @@
-import { MdMenu, MdOutlineMoreHoriz } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
+import { VscGithub } from "react-icons/vsc";
 
 export const Header = () => {
   return (
@@ -13,7 +14,9 @@ export const Header = () => {
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
-          <MdOutlineMoreHoriz size="2em" />
+          <a href="https://github.com/darashi/daihon">
+            <VscGithub size="2em" />
+          </a>
         </button>
       </div>
     </header>
