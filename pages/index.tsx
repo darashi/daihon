@@ -34,7 +34,7 @@ const Home: NextPage<Props> = ({ utterances }) => {
     <div className="flex flex-col h-full overflow-hidden">
       <Header />
 
-      <main className="flex-grow overflow-y-scroll">
+      <main className="flex-grow overflow-y-auto">
         <div className="container mx-auto my-3 px-2">
           <div className="flex items-center my-3">
             <button className="btn btn-primary mr-3" onClick={handleDelta(-1)}>
