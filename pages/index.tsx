@@ -67,7 +67,7 @@ const Home: NextPage<Props> = ({ utterances }) => {
   return (
     <div className="flex flex-col h-full overflow-hidden">
       <Head>
-        <title>daihon | {utt.id}</title>
+        <title>{`daihon | ${utt.id}`}</title>
       </Head>
       <Header onMenuSelection={handleMenuSelection} />
 
