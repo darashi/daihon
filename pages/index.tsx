@@ -31,7 +31,7 @@ const Home: NextPage<Props> = ({ utterances }) => {
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden">
+    <div className="flex flex-col h-full overflow-hidden">
       <Header />
 
       <main className="flex-grow overflow-y-scroll">
