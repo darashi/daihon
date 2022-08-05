@@ -2,3 +2,6 @@
 	path = data/ita-corpus
 	url = https://github.com/darashi/ita-corpus.git
 	branch = ruby
+[submodule "data/rohan4600"]
+	path = data/rohan4600
+	url = https://github.com/mmorise/rohan4600.git

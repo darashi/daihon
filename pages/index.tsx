@@ -4,6 +4,7 @@ import type { InferGetStaticPropsType, NextPage } from "next";
 import { useState } from "react";
 import { Header } from "../components/Header";
 import { getData } from "../lib/data";
+import { LinkToCorpus } from "../components/LinkToCorpus";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -90,7 +91,7 @@ const Home: NextPage<Props> = ({ utterances }) => {
 
           <div className="my-5">
             <p className="italic text-right text-gray-500 underline">
-              <a href="https://github.com/mmorise/ita-corpus">ITAコーパス</a>
+              <LinkToCorpus uttId={utt.id} />
             </p>
           </div>
         </div>

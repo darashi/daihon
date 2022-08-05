@@ -11,7 +11,7 @@ export type Utterance = {
 
 function toRubyHtml(str: string): string {
   return str.replaceAll(
-    /([\u4E00-\u9FFF々]+)\(([ぁ-んー]+)\)/g,
+    /([\u4E00-\u9FFF々ヶ0-9]+)\(([ぁ-んー]+)\)/g,
     "<ruby><rb>$1</rb><rt>$2</rt></ruby>"
   );
 }
@@ -40,6 +40,7 @@ export const getData: () => Promise<Utterance[]> = async () => {
   const files = [
     "ita-corpus/emotion_transcript_ruby_utf8.txt",
     "ita-corpus/recitation_transcript_ruby_utf8.txt",
+    "rohan4600/Rohan4600_transcript_utf8.txt",
   ];
 
   let data: Utterance[] = [];
