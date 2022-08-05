@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Header } from "../components/Header";
 import { getData } from "../lib/data";
 import { LinkToCorpus } from "../components/LinkToCorpus";
+import Head from "next/head";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -61,6 +62,9 @@ const Home: NextPage<Props> = ({ utterances }) => {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
+      <Head>
+        <title>daihon | {utt.id}</title>
+      </Head>
       <Header onMenuSelection={handleMenuSelection} />
 
       <main className="flex-grow overflow-y-auto">
