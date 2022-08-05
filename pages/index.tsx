@@ -55,9 +55,13 @@ const Home: NextPage<Props> = ({ utterances }) => {
     setCursor(nextCursor);
   };
 
+  const handleMenuSelection = (selected: string) => {
+    setCursor(utterances.findIndex((utt) => utt.id.startsWith(selected)));
+  };
+
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      <Header />
+      <Header onMenuSelection={handleMenuSelection} />
 
       <main className="flex-grow overflow-y-auto">
         <div className="container mx-auto my-3 px-2">
