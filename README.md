@@ -12,6 +12,12 @@ Supported corpora:
 * [ROHAN4600](https://github.com/mmorise/rohan4600)
 
 
+## Shortcut Keys
+
+* Left Arrow Key: prev
+* Right Arrow Key: next
+
+
 ## Develop
 
     git clone --recursive https://github.com/darashi/daihon

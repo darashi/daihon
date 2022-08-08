@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-
 import type { InferGetStaticPropsType, NextPage } from "next";
+import Head from "next/head";
+import { useHotkeys } from "react-hotkeys-hook";
+
 import { useState } from "react";
 import { Header } from "../components/Header";
 import { getData } from "../lib/data";
 import { LinkToCorpus } from "../components/LinkToCorpus";
-import Head from "next/head";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -63,6 +64,9 @@ const Home: NextPage<Props> = ({ utterances }) => {
     );
     setCursorWithPersistence(Math.max(nextCursor, 0));
   };
+
+  useHotkeys("left", handleDelta(-1));
+  useHotkeys("right", handleDelta(+1));
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
