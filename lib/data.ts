@@ -12,7 +12,7 @@ export type Utterance = {
 function toRubyHtml(str: string): string {
   return str.replaceAll(
     /([\u4E00-\u9FFF々ヶ0-9]+)\(([ぁ-んー]+)\)/g,
-    "<ruby><rb>$1</rb><rt>$2</rt></ruby>"
+    "<ruby>$1<rp>(</rp><rt>$2</rt><rp>)</rp></ruby>"
   );
 }
 
