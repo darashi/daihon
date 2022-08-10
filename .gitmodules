@@ -1,6 +1,6 @@
 [submodule "data/ita-corpus"]
 	path = data/ita-corpus
-	url = https://github.com/darashi/ita-corpus.git
+	url = https://github.com/mmorise/ita-corpus.git
 	branch = ruby
 [submodule "data/rohan4600"]
 	path = data/rohan4600
